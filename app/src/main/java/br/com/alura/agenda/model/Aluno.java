@@ -1,11 +1,25 @@
 package br.com.alura.agenda.model;
 
+import java.io.Serializable;
+
 import androidx.annotation.NonNull;
 
-public class Aluno {
+public class Aluno implements Serializable {
     private final String nome;
     private final String telefone;
     private final String email;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 
     public Aluno(String nome, String telefone, String email) {
         this.nome = nome;
