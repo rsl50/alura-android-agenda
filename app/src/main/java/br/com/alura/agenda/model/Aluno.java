@@ -10,6 +10,10 @@ public class Aluno implements Serializable {
     private String telefone;
     private String email;
 
+    public Aluno() {
+
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -52,5 +56,9 @@ public class Aluno implements Serializable {
     @Override
     public String toString() {
         return this.nome;
+    }
+
+    public boolean temIdValido() {
+        return id > 0;
     }
 }
