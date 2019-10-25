@@ -5,12 +5,33 @@ import java.io.Serializable;
 import androidx.annotation.NonNull;
 
 public class Aluno implements Serializable {
-    private final String nome;
-    private final String telefone;
-    private final String email;
+    private int id = 0;
+    private String nome;
+    private String telefone;
+    private String email;
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getNome() {
         return nome;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTelefone() {
