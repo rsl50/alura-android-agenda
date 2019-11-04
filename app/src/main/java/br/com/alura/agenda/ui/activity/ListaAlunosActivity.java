@@ -57,7 +57,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
             Aluno aluno = adapter.getItem(menuInfo.position);
             remove(aluno);
         }
-        
+
         return super.onContextItemSelected(item);
     }
 
