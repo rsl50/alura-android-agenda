@@ -1,5 +1,6 @@
 package br.com.alura.agenda.ui.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -12,6 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import br.com.alura.agenda.R;
 import br.com.alura.agenda.dao.AlunoDAO;
@@ -44,14 +46,26 @@ public class ListaAlunosActivity extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-
         if (itemId == R.id.activity_lista_alunos_menu_remover) {
-            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-            Aluno aluno = adapter.getItem(menuInfo.position);
-            remove(aluno);
+            confirmaRemocao(item);
         }
-
         return super.onContextItemSelected(item);
+    }
+
+    private void confirmaRemocao(@NonNull final MenuItem item) {
+        new AlertDialog.Builder(this)
+                .setTitle("Removendo Aluno")
+                .setMessage("Tem certeza que deseja remover o aluno?")
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                        Aluno aluno = adapter.getItem(menuInfo.position);
+                        remove(aluno);
+                    }
+                })
+                .setNegativeButton("Não", null)
+                .show();
     }
 
     private void configuraFabNovoAluno() {
