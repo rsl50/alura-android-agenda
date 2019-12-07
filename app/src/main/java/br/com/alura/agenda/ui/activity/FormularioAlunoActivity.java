@@ -16,7 +16,7 @@ import static br.com.alura.agenda.ui.activity.ConstantesActivities.CHAVE_ALUNO;
 
 public class FormularioAlunoActivity extends AppCompatActivity {
 
-    public static final String TITULO_APPBAR_NOVO_ALUNO = "Novo aluno";
+    private static final String TITULO_APPBAR_NOVO_ALUNO = "Novo aluno";
     private static final String TITULO_APPBAR_EDITA_ALUNO = "Edita aluno";
     private EditText campoNome;
     private EditText campoTelefone;
@@ -85,7 +85,6 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         campoEmail = findViewById(R.id.activity_formulario_aluno_email);
     }
 
-    @NonNull
     private void preencheAluno() {
         String nome = campoNome.getText().toString();
         String telefone = campoTelefone.getText().toString();
